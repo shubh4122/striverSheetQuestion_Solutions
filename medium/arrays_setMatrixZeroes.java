@@ -1,4 +1,4 @@
-package striversSheet;
+package striversSheet.medium;
 
 import java.util.Arrays;
 
