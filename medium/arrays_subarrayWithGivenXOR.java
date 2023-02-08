@@ -20,7 +20,7 @@ public class arrays_subarrayWithGivenXOR {
     //O(n) TC, O(n) SC - HashMap
     public static int countSubArrWithGivenXorOPTIMISED(ArrayList<Integer> a, int b) {
         int count = 0, currentXor = 0, reqXor = 0;
-        HashMap<Integer, Integer> map = new HashMap<>();
+        HashMap<Integer, Integer> map = new HashMap<>();//key = currXor, val = num of times the currXor value occurs in prefix Xor
 
         for (int i = 0; i < a.size(); i++) {
             //storing prefix xor in hashset, while we proceed
@@ -32,7 +32,7 @@ public class arrays_subarrayWithGivenXOR {
             if (map.containsKey(reqXor))
                 count += map.get(reqXor);
 
-            //add currentXor to hashmap at last, after comparision, sp that if b = 0
+            //add currentXor to hashmap at last, after comparision, so that if b = 0
             //It doesnt count itself as reqXor. eg- if b = 0, 0^1 = 1. so if we enter the currentxor at starting, then it will count itself as reqXor
             map.put(currentXor, map.getOrDefault(currentXor, 0)+1);
 
