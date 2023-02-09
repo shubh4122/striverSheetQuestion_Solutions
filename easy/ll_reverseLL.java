@@ -36,9 +36,10 @@ public class ll_reverseLL {
     }
 
 
-    class Node {
-        int data;
-        Node next;
+    //everything made public so every other class can use it
+    public class Node {
+        public int data;
+        public Node next;
 
         Node(int data) {
             this.data = data;
