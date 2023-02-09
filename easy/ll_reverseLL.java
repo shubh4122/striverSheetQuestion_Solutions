@@ -37,11 +37,12 @@ public class ll_reverseLL {
 
 
     //everything made public so every other class can use it
-    public class Node {
+    //static was made due to some warning while using its constructor in other class. see if needed
+    public static class Node {
         public int data;
         public Node next;
 
-        Node(int data) {
+        public Node(int data) {
             this.data = data;
         }
     }
