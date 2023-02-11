@@ -10,6 +10,28 @@ import java.util.Stack;
 public class tree_preoreder {
 
 
+    public static List<Integer> preorderIterativeSimple(Node root) {
+        List<Integer> preorder = new ArrayList<>();
+        Stack<Node> s = new Stack<>();
+        Node popped;
+
+        s.push(root);
+        while (!s.isEmpty()) {
+            //add root
+            popped = s.pop();
+            preorder.add(popped.data);
+
+            //FIRST add Right to stack then Left.
+            //Reason = coz we want left after root, and stack pops the top. Hence pushing left later
+            if (popped.right != null)
+                s.push(popped.right);
+            if (popped.left != null)
+                s.push(popped.left);
+        }
+
+        return preorder;
+    }
+
     public static List<Integer> preorderIterative(Node root) {
         List<Integer> preorder = new ArrayList<>();
         Stack<Node> s = new Stack<>();
