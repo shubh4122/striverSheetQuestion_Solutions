@@ -59,6 +59,8 @@ public class tree_postorder {
             //L
             if (popped.left != null)
                 s.push(popped.left);
+
+            //R
             if (popped.right != null)
                 s.push(popped.right);
         }
