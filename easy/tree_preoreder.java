@@ -16,16 +16,19 @@ public class tree_preoreder {
         Node popped;
 
         s.push(root);
+
+        //Preorder --> Root L R.............
+        //Order of dealing node --> Root R L(just swap of above order) ( because stack pops last pushed elem, and hence it'll be L 1st popped and then R. Hence original preorder preserved
         while (!s.isEmpty()) {
-            //add root
+            //add ROOT
             popped = s.pop();
             preorder.add(popped.data);
 
             //FIRST add Right to stack then Left.
             //Reason = coz we want left after root, and stack pops the top. Hence pushing left later
-            if (popped.right != null)
+            if (popped.right != null)//R
                 s.push(popped.right);
-            if (popped.left != null)
+            if (popped.left != null)//L
                 s.push(popped.left);
         }
 
