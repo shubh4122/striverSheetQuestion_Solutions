@@ -23,7 +23,7 @@ public class ll_mergeSortedLL {
                 curr1 = curr1.next;
             }
             else {
-                n1 = curr1.next;
+                n1 = curr1.next;//used as temp var
                 curr1.next = curr2;
                 curr1 = curr2;
                 //Basically curr1 always points to the end of the connected list by far.
