@@ -9,7 +9,7 @@ public class tree_bottomView {
 
     public static ArrayList<Integer> bottomViewTreeMap(Node root) {
         //To keep track of ""latest"" nodes with a given horizontal dist from root.
-        //treemap keeps track of order of insertion. hence it is ordered
+        //treemap By default, is sorted in ascending order of keys!!
         TreeMap<Integer, Integer> map = new TreeMap<>();//dist, node.data
         ArrayList<Integer> bv = new ArrayList<>();
         Queue<Pair<Node, Integer>> q = new LinkedList<>();//to do level order traversal
