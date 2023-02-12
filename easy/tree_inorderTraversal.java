@@ -53,7 +53,7 @@ public class tree_inorderTraversal {
 
 
     //Every thing public coz i want all of it to be accessible across packages
-    public class Node {
+    public static class Node {
         public int data;
         public Node left, right;
 
