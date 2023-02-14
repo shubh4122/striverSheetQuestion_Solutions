@@ -1,9 +1,6 @@
 package striversSheet.medium;
 
-import striversSheet.easy.tree_inorderTraversal;
 import striversSheet.easy.tree_inorderTraversal.Node;
-
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -19,10 +16,13 @@ public class tree_childrenSumProperty {
         root.right.left = new Node(5);
         root.right.right = new Node(2);
 
+        System.out.println(isCsp(root) == 1);
         System.out.println(tree_levelOrderTraversalLbL.lblLevelOrder(root));
 
         modifyTreeCSP_DFS(root);
+
         System.out.println(tree_levelOrderTraversalLbL.lblLevelOrder(root));
+        System.out.println(isCsp(root) == 1);
     }
 
     //almost same as   **preorder**   recursive traversal
@@ -93,7 +93,7 @@ public class tree_childrenSumProperty {
 
 
     //Easy - just check if tree follows csp
-    public static int csp(Node root) {
+    public static int isCsp(Node root) {
         //following level order traversal
         Queue<Node> q = new LinkedList<>();
         q.add(root);
