@@ -2,6 +2,7 @@ package striversSheet.medium;
 
 import striversSheet.easy.tree_inorderTraversal.Node;
 
+//https://takeuforward.org/data-structure/lowest-common-ancestor-for-two-given-nodes/
 public class tree_LCA {//Lowest common ancestor
 
     public static void main(String[] args) {
