@@ -3,7 +3,7 @@ package striversSheet.medium;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class IsGraphBipartite {
+public class graph_IsGraphBipartite {
     public static void main(String[] args) {
 
     }
