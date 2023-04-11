@@ -64,7 +64,8 @@ public class arrays_findDuplicateInArray {
         return -1;
     }
 
-    //M3 : Array as a HashMap. we map arr values with their corresponding index. i.e. arr[] = 5 is matched with index 5. and hence arr[5] = 5 done
+    //M3 : Array as a HashMap. we map arr values with their corresponding index.
+    // i.e. arr[] = 5 is matched with index 5. and hence arr[5] = 5 done
     //V efficient in time and space, BUT IT CHANGES THE ARRAY! Undesirable here.
     public static int findDuplicateMethod3(int[] nums) {
         /*
@@ -127,6 +128,6 @@ public class arrays_findDuplicateInArray {
         return count;
     }
 
-    //M4: Sum of set BITS -- ND, may see from editorial[Link above]
+    //M5: Sum of set BITS -- ND, may see from editorial[Link above]
     //TC: O(nlogn), SC : O(1)
 }
