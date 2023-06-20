@@ -2,6 +2,7 @@ package striversSheet.easy;
 
 import java.util.Stack;
 
+//https://leetcode.com/problems/implement-queue-using-stacks/description/
 public class stack_Q_implementQusingStacks {
 
     //https://youtu.be/3Et9MrMc02A great explaination for below method

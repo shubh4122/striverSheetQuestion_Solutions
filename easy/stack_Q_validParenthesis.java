@@ -2,6 +2,7 @@ package striversSheet.easy;
 
 import java.util.Stack;
 
+//https://leetcode.com/problems/valid-parentheses/description/
 public class stack_Q_validParenthesis {
     public boolean isValid(String s) {
         Stack<Character> st = new Stack<>();
