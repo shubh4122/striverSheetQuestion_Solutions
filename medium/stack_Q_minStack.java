@@ -49,7 +49,6 @@ public class stack_Q_minStack {
     public int getMin() {
         return mini.intValue();
     }
-}
 
     //Space - O(2n)
 //    Stack<int[]> s;
