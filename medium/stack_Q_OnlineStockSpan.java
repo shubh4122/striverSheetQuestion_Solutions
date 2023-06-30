@@ -24,7 +24,6 @@ public class stack_Q_OnlineStockSpan {
         s.push(new int[]{price, span});
         return span;
     }
-}
 
     //next -> TC O(n) - BRUTE FORCE
 //    ArrayList<Integer> prices;
