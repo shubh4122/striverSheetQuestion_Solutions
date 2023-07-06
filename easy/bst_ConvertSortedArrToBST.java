@@ -18,7 +18,7 @@ public class bst_ConvertSortedArrToBST {
     public static TreeNode sortedArrayToBST(int[] nums) {
         return makeBST(nums, 0, nums.length-1);
     }
-    
+
     private static TreeNode makeBST(int[] nums, int start, int end) {
         int mid = (end+start)/2;
         //BC
