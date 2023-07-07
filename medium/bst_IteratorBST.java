@@ -5,9 +5,26 @@ import java.util.Stack;
 //https://leetcode.com/problems/binary-search-tree-iterator/
 public class bst_IteratorBST {
 
+    /**
+     * NOTE: INTERVIEW TIP!!
+     * For even better code, we can use a var, isReverse and if its true, we do BEFORE, else NEXT
+     *
+     * Also, then we wont write 2 stacks and 2 diff functions.
+     * Just use a simple if/else, for isRev and see if it must be ptr.left or ptr.right.
+     *
+     * Make 2 objects, one for next other for before in 2 sum and work accordingly..
+     *
+     * More Info:
+     * https://youtu.be/ssL3sHwPeb4?t=737
+     */
+
+
+
     /*
         Firstly, why use this DS?
         Just to BACKTRACK to previous nodes!!
+
+        NOTE: this current Stack Modified and Cleaned code performs equivalent to list code.
 
         I used list, but i made it function just like stack.
         By accessing only the first char and inserting at
@@ -16,55 +33,58 @@ public class bst_IteratorBST {
         List - performed well in terms of percentage both in time and space
         Stack - performed miserably low in terms of percentage in both
      */
-    TreeNode root, ptr;
-//    List<TreeNode> partialInorder;
-    Stack<TreeNode> partialInorder;
+    Stack<TreeNode> partialInorderNext, partialInorderBefore;
 
     public bst_IteratorBST(TreeNode root) {
-        this.root = root;
-        ptr = new TreeNode(-1);
-//        partialInorder = new ArrayList<>();
-        partialInorder = new Stack<>();
+        partialInorderNext = new Stack<>();
+        partialInorderBefore = new Stack<>();
+
+        pushAllLeftToStack(root);//making ptr point to the smallest elem
+        pushAllRightToStack(root);
     }
 
+    //gives out elem in ascending order
     public int next() {
-        if (ptr.val == -1) {
-            ptr = root;
-            pushAllLeftToStack();
-        }
-//        TreeNode ans = partialInorder.remove(0);
-        TreeNode ans = partialInorder.pop();
+        TreeNode ans = partialInorderNext.pop();
+        if (ans.right!=null)
+            pushAllLeftToStack(ans.right);
 
-        if (ans.right!=null){
-            ptr = ans.right;
-            pushAllLeftToStack();
-        }
-//        ptr = partialInorder.isEmpty()? null:partialInorder.get(0);
-        ptr = partialInorder.isEmpty()? null:partialInorder.peek();
         return ans.val;
     }
 
-    private void pushAllLeftToStack() {
+    //gives out elem in descending order
+    public int before(){
+        TreeNode ans = partialInorderBefore.pop();
+        if (ans.left!=null)
+            pushAllRightToStack(ans.left);
+
+        return ans.val;
+    }
+
+    public boolean hasNext() {
+        return !partialInorderNext.isEmpty();//if stack empty, means no HasNext;
+    }
+
+
+    private void pushAllLeftToStack(TreeNode ptr) {
         while (ptr!=null) {
-//                partialInorder.add(0, ptr);
-            partialInorder.push(ptr);
+            partialInorderNext.push(ptr);
             ptr = ptr.left;
         }
     }
 
-    public boolean hasNext() {
-        if (ptr==null)
-            return false;
-
-        return true;//for ptr==-1 or ptr = some val.
+    private void pushAllRightToStack(TreeNode ptr) {
+        while (ptr!=null) {
+            partialInorderBefore.push(ptr);
+            ptr = ptr.right;
+        }
     }
 
 
-
     public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
+        public int val;
+        public TreeNode left;
+        public TreeNode right;
         TreeNode() {}
         TreeNode(int val) { this.val = val; }
         TreeNode(int val, TreeNode left, TreeNode right) {
