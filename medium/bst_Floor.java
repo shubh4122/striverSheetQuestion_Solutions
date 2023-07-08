@@ -21,7 +21,7 @@ public class bst_Floor {
 
 
 
-    class TreeNode<T> {
+    public class TreeNode<T> {
 
         public T data;
         public TreeNode<T> left;
