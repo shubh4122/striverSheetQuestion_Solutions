@@ -2,8 +2,10 @@ package striversSheet.medium;
 
 import java.util.ArrayList;
 
+//https://leetcode.com/problems/combination-sum/description/
 public class recursion_combinationSum1 {
     static ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
+    //always use NON static global var in Online compiler[multiple test cases]
 
     public static void main(String[] args) {
         int[] candidates = new int[]{2,3,5};//{2,3,6,7};
@@ -18,7 +20,8 @@ public class recursion_combinationSum1 {
          */
         //either declare ans here itself! and pass in fun param
         ans = new ArrayList<>();//IMP
-        combSum(candidates, new ArrayList<>(), target, candidates.length);
+//        combSum(candidates, new ArrayList<>(), target, candidates.length);
+        combSum(candidates, new ArrayList<>(), target, 0);
         System.out.println(ans);
     }
 
@@ -32,23 +35,23 @@ public class recursion_combinationSum1 {
             ans.add(new ArrayList<>(opCombn));
             return;
         }
-        if (i == 0) {//i is len of candidates. i = 0 means arr finished
+        if (i == candidates.length) {//i is len of candidates. i = 0 means arr finished
             return;
         }
 
         //Choice Diag - same recursive solution as Unbounded KS, DP not used tho.
-        if (candidates[i-1] <= target) {
+        if (target - candidates[i] >= 0) {
             //take
-            opCombn.add(candidates[i-1]);
-            combSum(candidates, opCombn, target - candidates[i-1], i); //len remains i, as unlimited supply
+            opCombn.add(candidates[i]);
+            combSum(candidates, opCombn, target - candidates[i], i); //len remains i, as unlimited supply
             opCombn.remove(opCombn.size() - 1);
 
             //not take
-            combSum(candidates, opCombn, target, i - 1);
+            combSum(candidates, opCombn, target, i+1);
         }
         else {
             //not take
-            combSum(candidates, opCombn, target, i - 1);
+            combSum(candidates, opCombn, target, i+1);
         }
     }
 }
