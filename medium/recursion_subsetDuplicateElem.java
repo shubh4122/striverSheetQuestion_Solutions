@@ -49,6 +49,9 @@ public class recursion_subsetDuplicateElem {
         If we skip (2), That is we are in NT branch of the tree for (2). We now have choice to either
         Take (2*) or NT (2*). If we suppose take it, the new subset formed is: [1, 2*]
         WHICH is same as the subset of [1,2] formed when we TAKE first occuring 2.
+
+        OR if cant understand above reason: watch
+        https://www.youtube.com/watch?v=Vn2v6ajA7U0
      */
     public static void subsetDupBEST(int[] arr, int index, List<List<Integer>> ans, List<Integer> list) {
         //BC
