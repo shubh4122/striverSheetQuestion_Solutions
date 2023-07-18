@@ -25,7 +25,32 @@ public class recursion_combinationSum1 {
         System.out.println(ans);
     }
 
-//    TC: O(2^target . k)   SC: O(k.x) hypothetically. x = no. of combinations. which we cant tell, hence hypo.
+
+    //M2:  Just extending the Backtracking template.
+    public static void combSumBACKTRACKINGtemplate(int[] candidates, ArrayList<Integer> list, int target, int index) {
+        if (target == 0){
+            ans.add(new ArrayList<>(list));
+            return;
+        }
+
+        //Backtracking template
+        for (int i = index; i < candidates.length; i++) {
+            //same as combination sum2, just that SKIPPING condition is removed!!
+            if (target-candidates[i] >= 0){
+                list.add(candidates[i]);
+                combSum(candidates, list, target - candidates[i], i);
+                list.remove(list.size() - 1);
+            }
+        }
+    }
+
+    //M1: Intuitive Take/NotTake Method
+    /*
+        TC: O(2^target . k)   SC: O(k.x) hypothetically. x = no. of combinations. which we cant tell, hence hypo.
+
+        Why not (2^n) but (2^t) (where n is the size of an array)?
+        Assume that there is 1 and the target you want to reach is 10 so 10 times you can “pick or not pick” an element.
+     */
     public static void combSum(int[] candidates, ArrayList<Integer> opCombn, int target, int i) {
         //Unbounded Knapsack, ques. But DP not needed!!
 
