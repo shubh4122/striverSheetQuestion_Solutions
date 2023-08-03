@@ -98,7 +98,7 @@ public class dp_01KS {
 
 
     /*
-        -------------------------------------------------NOTE-------------------------------------------------
+        -------------------------------------------------NOTE- NOT RECOMMENDED-------------------------------------------------
         Below code is Memoization dp. that is TOP DOWN dp.
         BUT i coded it somewhat bottom up. coz i start with finding ans for index = 0, and then at last for index = n-1
 
