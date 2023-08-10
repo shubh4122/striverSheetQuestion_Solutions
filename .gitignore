@@ -3,3 +3,4 @@ medium/tree_constructTreeByInorder_Preorder.java
 hard/binarySearch_MedianOfTwoSortedArrays.java
 OtherGoodQuestions/DP_numberOfLongestLIS.java
 OtherGoodQuestions/DP_Str_MinASCIIDeleteSumFor2Strings.java
+medium/dp_jobSequencing.java
